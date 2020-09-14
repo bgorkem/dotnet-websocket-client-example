@@ -23,6 +23,9 @@ npm run db:create
 
 ```
 
+Sqlite node driver
+https://www.npmjs.com/package/sqlite#creating-a-table-and-inserting-data
+
 
 ## Start Server
 
