@@ -21,7 +21,7 @@ namespace dotnet_websock_client
                 client.ReconnectionHappened.Subscribe(info =>
                     Console.WriteLine($"Reconnection happened, type: {info.Type}"));
 
-                client.MessageReceived.Subscribe(msg => Console.WriteLine($"Message received: {msg}"));
+                client.MessageReceived.Subscribe(OnMessageReceived);
                 client.Start();
 
 
@@ -36,6 +36,12 @@ namespace dotnet_websock_client
         static byte[] LoadImage()
         {
             return System.IO.File.ReadAllBytes("./apple.jpg");
+        }
+
+        static void OnMessageReceived(ResponseMessage message)
+        {
+            Console.WriteLine($"Message received: {message}");
+            // you can do anything here..
         }
     }
 }
